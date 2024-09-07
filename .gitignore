@@ -1,0 +1,107 @@
+# C++ Build Artifacts
+*.o
+*.obj
+*.a
+*.so
+*.dll
+*.dylib
+*.lib
+*.exe
+*.out
+*.gcno
+*.gcda
+*.gch
+*.pdb
+*.idb
+*.tlog
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+*.sublime-workspace
+*.sublime-project
+
+# Protobuf and gRPC Generated Files (if not versioned)
+*.pb.h
+*.pb.cc
+*.grpc.pb.h
+*.grpc.pb.cc
+
+# Python Bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python Virtual Environment
+venv/
+env/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Apache Flink Configuration and Logs
+*.log
+*.pid
+*.tmp
+flink-conf.yaml
+flink-logs/
+flink-checkpoints/
+flink-savepoints/
+flink-webui-logs/
+flink-externalized-checkpoints/
+
+# DBT Artifacts
+dbt_modules/
+*.dbt/
+target/
+*.dbt/
+
+# Google BigQuery
+*.bq
+
+# IDEs and Editors
+.idea/
+*.suo
+*.ntvs_analysis.dat
+*.ncb
+*.sdf
+*.vcxproj
+*.vcxproj.filters
+*.vscode/
+*.swp
+*.swo
+
+# OS Specific Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Miscellaneous
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+*.suo
+*.ntvs_analysis.dat
+*.ncb
+*.sdf
+*.vcxproj
+*.vcxproj.filters
+
+# Backup Files
+*~
+*.bak
+*.tmp
+*.swp
+
+# Generated Files
+*.generated
+*.generated.*

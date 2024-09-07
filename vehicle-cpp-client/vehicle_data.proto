@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package vehicle;
+
+message VehicleData {
+    string vehicle_id = 1; 
+    TelemetryData telemetry = 2;  
+    GpsData gps = 3; 
+    DiagnosticData diagnostics = 4; 
+    DriverBehaviorData driver_behavior = 5; 
+    InfotainmentData infotainment = 6; 
+    string timestamp = 7; 
+}
+
+// Telemetry data about the vehicle's performance
+message TelemetryData {
+    float speed = 1;            // Speed in km/h or mph
+    float rpm = 2;              // Revolutions per minute
+    float fuel_level = 3;       // Fuel level in percentage
+    float engine_temp = 4;      // Engine temperature in degrees Celsius
+    float battery_voltage = 5;  // Battery voltage in volts
+    float odometer = 6;         // Odometer reading in kilometers or miles
+}
+
+// GPS and location data
+message GpsData {
+    double latitude = 1;            // Latitude
+    double longitude = 2;           // Longitude
+    double altitude = 3;            // Altitude in meters above sea level
+    double speed_over_ground = 4;   // Speed based on GPS data
+    double heading = 5;             // Direction in degrees
+}
+
+// OBD-II diagnostic data
+message DiagnosticData {
+    repeated string dtc_codes = 1;  // Diagnostic Trouble Codes (DTC)
+    float engine_load = 2;          // Engine load as a percentage
+    float throttle_position = 3;    // Throttle position as a percentage
+    float transmission_temp = 4;    // Transmission temperature in degrees Celsius
+    float tire_pressure = 5;        // Average tire pressure in psi or kPa
+}
+
+// Data related to the driver's actions
+message DriverBehaviorData {
+    float acceleration = 1;         // Acceleration in m/s^2
+    float deceleration = 2;         // Deceleration in m/s^2
+    float steering_angle = 3;       // Steering wheel angle in degrees
+    bool seatbelt_fastened = 4;     // Whether seatbelt is fastened
+    bool airbag_deployed = 5;       // Whether airbags have deployed
+}
+
+// Infotainment and connectivity data
+message InfotainmentData {
+    string media_playing = 1;               // Current media being played
+    bool bluetooth_connected = 2;           // Whether a Bluetooth device is connected
+    repeated string connected_devices = 3;  // List of connected device IDs
+    string current_route = 4;               // Current navigation route
+}
+
+service VehicleDataStreamer {
+    rpc StreamVehicleData(stream VehicleData) returns (StreamResponse);
+}
+
+message StreamResponse {
+    string status = 1;
+}

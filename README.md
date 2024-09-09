@@ -6,6 +6,18 @@ The Real-Time Vehicle Data Processing Pipeline efficiently manages and analyzes 
 
 <img src="/images/vehicle-data-pipeline.png" alt="Image description" height="70%">
 
+### TODO
+
+- [x] Develop vehicle client that sends data via gRPC in C++ (to generate dummy data)
+- [x] Develop gRPC server (written in Python) to recieve data from vechicle client application
+- [x] Write Producer using Apache Kafka to stream messages containing vehicle data (written in Python)
+- [x] Develop Consumer with Apache Flink to consume stream messages from Kafka Producer (written in Python)
+- [x] Aggregate and average data streams consumed by Flink for a particular time window (e.g., 5 second)
+- [x] Sink the aggregated and averaged stream data for the particular time window in Google BigQuery
+- [ ] Connect Tableau with Google BigQuery to do Data Analytics
+- [ ] Perform Real-time AI prediction from Flink data stream to detect anomaly and other decision making
+- [ ] Notify events (anomaly, warnings, any kind of failure) to stack holders like - Vehicle User, Data Analytics Panel etc. in real-time 
+
 ### Usage
 
 To start all the containers - `Vehicle C++ Client`, `Kafka Data Producer (gRPC Server)`, `Flink Data Streamer (BigQuery Sink Client)`

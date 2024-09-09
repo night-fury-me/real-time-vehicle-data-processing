@@ -16,7 +16,7 @@ The Real-Time Vehicle Data Processing Pipeline efficiently manages and analyzes 
 - [x] Sink the aggregated and averaged stream data for the particular time window in Google BigQuery
 - [ ] Connect Tableau with Google BigQuery to do Data Analytics
 - [ ] Perform Real-time AI prediction from Flink data stream to detect anomaly and other decision making
-- [ ] Notify events (anomaly, warnings, any kind of failure) to stack holders like - Vehicle User, Data Analytics Panel etc. in real-time 
+- [ ] Notify events (anomaly, warnings, any kind of failure) using AWS SNS to stack holders (Vehicle User, Data Analytics Panel etc.) in real-time 
 
 ### Usage
 

@@ -1,7 +1,7 @@
 > _This repository contains real-time data processing data pipeline using technologies like - `gRPC`, `Apache Kafka`, `Apache Flink`, `Google BigQuery`. The base framework for this project was adapted from the [flink-with-python](https://github.com/afoley587/flink-with-python) repository._
 
 
-## Real-time vehicle data processing pipeline
+## Real-time Vehicle Data Processing Pipeline
 The Real-Time Vehicle Data Processing Pipeline efficiently manages and analyzes vehicle data through a cohesive system. The Vehicle C++ Client collects real-time telemetry data and transmits it via gRPC. This data is then ingested by the Kafka Data Producer, which streams it into Kafka topics. Apache Flink processes the streaming data, performs aggregations and real-time analytics, and writes the results to Google BigQuery for comprehensive storage and analysis. This pipeline ensures seamless data flow and insightful analysis, optimizing vehicle management and performance. 
 
 <img src="/images/vehicle-data-pipeline.png" alt="Image description" height="70%">

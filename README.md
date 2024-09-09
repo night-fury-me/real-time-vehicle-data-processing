@@ -48,3 +48,9 @@ docker-compose exec -it vehicle-cpp-client bash
 ```bash
 ./client
 ```
+
+### Turn of all the processes
+```bash
+docker-compose down 
+```
+

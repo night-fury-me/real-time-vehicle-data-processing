@@ -1,16 +1,50 @@
-# modern-vehicle-data-pipeline
+## Real-time vehicle data processing pipeline
 
+The Real-Time Vehicle Data Processing Pipeline efficiently manages and analyzes vehicle data through a cohesive system. The Vehicle C++ Client collects real-time telemetry data and transmits it via gRPC. This data is then ingested by the Kafka Data Producer, which streams it into Kafka topics. Apache Flink processes the streaming data, performs aggregations and real-time analytics, and writes the results to Google BigQuery for comprehensive storage and analysis. This pipeline ensures seamless data flow and insightful analysis, optimizing vehicle management and performance. 
 
-Generate Protobuf Code for C++ 
+**NOTE:** The base framework for this project was adapted from the "flink-with-python" repository, available at: https://github.com/afoley587/flink-with-python.
+
+### Usage
+
+To start all the containers - `Vehicle C++ Client`, `Kafka Data Producer (gRPC Server)`, `Flink Data Streamer (BigQuery Sink Client)`
 
 ```bash
-protoc --cpp_out=. --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` vehicle_data.proto
+docker-compose up -d  
 ```
 
-Vehicle Client Compilation command:
+### Enter into flink consumers shell
 
 ```bash
-g++ -std=c++17 client.cpp vehicle_data.pb.cc vehicle_data.grpc.pb.cc -o client \
-    `pkg-config --cflags protobuf grpc` \
-    `pkg-config --libs protobuf grpc++ grpc` -lpthread
+docker-compose exec -it data-streamer bash 
+```
+
+### Submit a flink job in the flink cluster
+
+```bash
+/flink/bin/flink run -py /taskscripts/data-streamer.py --jobmanager jobmanager:8081 --target local
+```
+
+### Enter into Data Stream Producers shell
+
+```bash
+docker-compose exec -it data-producer bash 
+```
+
+### Run the gRPC Server
+Run the Python gRPC server script:
+
+```bash
+python grpc_server.py
+```
+
+### Enter into Vehicle clients shell
+
+```bash
+docker-compose exec -it vehicle-cpp-client bash
+```
+
+### Start the sending vehicle data through gRPC
+
+```bash
+./client
 ```

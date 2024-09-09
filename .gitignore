@@ -105,3 +105,6 @@ Desktop.ini
 # Generated Files
 *.generated
 *.generated.*
+
+# Sensitive Credentials
+data-stream-processor/vehicle-data-processing-bigquery.json

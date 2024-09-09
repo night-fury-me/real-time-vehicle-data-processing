@@ -36,11 +36,10 @@ Enable Kafka at boot:
 sudo systemctl enable kafka
 ```
 
-### Configure Kafka Topic
-Ensure that the Kafka topic (vehicle-data-topic in the example) exists:
+### Enter into Data Stream Producers shell
 
 ```bash
-kafka-topics --create --topic vehicle-data-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+docker-compose exec -it data-producer bash 
 ```
 
 ### Run the gRPC Server
@@ -50,7 +49,15 @@ Run the Python gRPC server script:
 python grpc_server.py
 ```
 
-### Consume Kafka messages from a topic
+### Configure Kafka Topic
+Ensure that the Kafka topic (vehicle-data-topic in the example) exists:
+
+```bash
+kafka-topics --create --topic vehicle-data-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+```
+
+
+### Consume Kafka messages from a topic using console
 Use kafka-console-consumer to read raw messages from the topic:
 
 ```bash

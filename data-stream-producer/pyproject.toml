@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "data-stream-producer"
+version = "0.1.0"
+description = ""
+authors = ["RedwanulKarim <karim.redwanul.de@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+grpcio-tools = "^1.59.3"
+grpcio = "^1.59.3"
+loguru = "^0.7.2"
+black = "^23.11.0"
+asyncio = "^3.4.3"
+confluent-kafka = "^2.5.3"
+protobuf = "^5.28.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
